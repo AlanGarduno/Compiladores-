@@ -1,30 +1,36 @@
 %{
 #include <stdio.h>
 #include <math.h>
-##include "vector_cal.h"
+#include "vector_cal.h"
 void yyerror (char *s);
 int yylex ();
 void warning(char *s, char *t);
+#define YYSTYPE Vector*
 %}
 %union{
-	double vector[3];
+	char index;
+	double ival;
+	Vector *vec;
 }
-#define YYSTYPE vector
-%token <vector>NUMBER
+%token <index>VAR
+%token <ival>NUMBER
+%token <vec>VECTOR
 %left '+' '-'
-%left '*' '/'
+%left '*' '.'
+%left 'x'
 %%
 list:
 	| list'\n'
-        | list exp '\n'  { printf("\t%.8g\n", $2); }
+  | list vector '\n'  { imprimeVector($2); }
 	;
-exp:      NUMBER          { $$ = $1;  }
-        | exp '+' exp     { $$ = $1+$3;  }
-        | exp '-' exp     { $$ = $1-$3;  }
-        | exp '*' exp     { $$ = $1*$3;  }
-        | exp '/' exp     { $$ = $1/$3;  }
-        | '(' exp ')'     { $$ = $2;}
-	;
+exp:      NUMBER          { $$ = $1;     }
+        | exp '+' exp     {$$ = sumaVector($1,$3);}
+        | exp '-' exp     {$$ = restaVector($1,$3); }
+        | exp '*' exp     {$$ = mulEscalar($1,$3);  }
+        | exp '.' exp     {$$ = ppunto($1,$3);}
+				| exp 'x' exp     {$$ = pcruz($1,$3); }
+        | '(' exp ')'     { $$ = $2;  }
+				;
 %%
 
 #include <stdio.h>

@@ -106,7 +106,6 @@ Vector* mulEscalar(Vector* a, int escalar){
   return aux;
 }
 
-
 /*
 Vector *multiVector(Vector *a, Vector *b){
 Vector *c;

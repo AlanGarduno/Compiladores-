@@ -8,7 +8,7 @@ vector_cal.c:
 	@echo "Si esta"
 
 $(Gram): vector_cal.y
-	@yacc -d vector_cal.y
+	@yacc -d hoc1.y
 
 lex.yy.c: vector_cal.l
 	@flex vector_cal.l
