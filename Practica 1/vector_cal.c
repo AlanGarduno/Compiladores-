@@ -1,3 +1,8 @@
+#include <math.h>
+#include "vector_cal.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 int yylex (){
   	int c;
   	while ((c = getchar ()) == ' ' || c == '\t')
@@ -66,7 +71,7 @@ int i;
    return c;
 }
 
-double ppunto(Vector*a, Vector*b){
+double productoPuntoVector(Vector*a, Vector*b){
   Vector* aux;
   aux = creaVector(a->n);
   int i,j;
@@ -74,54 +79,48 @@ double ppunto(Vector*a, Vector*b){
   for(i=0;i<a->n;i++){
     aux->vec[i]=a->vec[i]*b->vec[i];
   }
-  for (j = 0; j < count; j++) {
+  for (j = 0; j < 2; j++) {
     sum = sum + aux->vec[j];
   }
 
   return sum;
 }
 
-Vector* pcruz(Vector*a, Vector*b){
+Vector* productoCruzVector(Vector*a, Vector*b){
   Vector* aux;
   aux=creaVector(a->n);
   double i,j,k;
   i =(a->vec[1] *  b->vec[2]) - (a->vec[2]*b->vec[1]);
   j =(a->vec[0] *  b->vec[3]) - (a->vec[3]*b->vec[0]);
   k =(a->vec[0] *  b->vec[1]) - (a->vec[0]*b->vec[1]);
-  aux[0]=i;
-  aux[1]=j;
-  aux[2]=k;
+  aux->vec[0]=i;
+  aux->vec[1]=j;
+  aux->vec[2]=k;
   return aux;
 
 }
 
-Vector* mulEscalar(Vector* a, int escalar){
+Vector* escalarVector(Vector* a, double escalar){
   Vector* aux,res;
   aux = creaVector(a->n);
-  res = creaVector(a->n)
-  int i,j;
+  res = creaVector(a->n);
+  int i;
   for(i = 0; i < a->n; i++) {
     aux->vec[i]=escalar*a->vec[i];
   }
   return aux;
 }
 
-/*
-Vector *multiVector(Vector *a, Vector *b){
-Vector *c;
-int i,j, k;
-double acu;
-        c=creaVector(a->n);
-	for(i=0; i< a->n;i++)
-		for(j=0; j < a->n;j++){
-			acu=0;
-			for(k=0; k < a->n;k++){
+double magnitudVector(Vector* a){
+  double aux;
+  aux = sqrt((a->vec[0] - a->vec[1])^2);
+}
+Vector*  obtenerValor(double a){
+}
 
-				acu=acu+a->mat[i][k]*b->mat[k][j];
-				//printf("<%f,%f,%f> ",a->mat[i][k],b->mat[k][j],acu);
-                        }
-                        //printf("\n");
-			c->mat[i][j]=acu;
-		}
-	return c;
-}*/
+void actualizarValor(Vector*a, Vector*b){
+  a->vec[0] = b->vec[0];
+  a->vec[1] = b->vec[1];
+  a->vec[2] = b->vec[2];
+}
+

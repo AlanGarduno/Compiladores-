@@ -1,18 +1,11 @@
 Gram=y.tab.c y.tab.h
 
-all: $(Gram) lex.yy.c vector_cal.c
-	@gcc -o vect y.tab.c lex.yy.c vector_cal.c
+all: $(Gram) vector_cal.c
+	@gcc -o vector y.tab.c vector_cal.c
 	@echo Compiled
 
 vector_cal.c:
 	@echo "Si esta"
 
-$(Gram): vector_cal.y
-	@yacc -d hoc1.y
-
-lex.yy.c: vector_cal.l
-	@flex vector_cal.l
-
-clean:
-	@rm -f *.out lex.yy.c *.tab.* vect
-	@echo Clean
+$(Gram): vector.y
+	@yacc -d vector.y
