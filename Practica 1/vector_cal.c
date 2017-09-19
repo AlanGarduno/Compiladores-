@@ -1,8 +1,9 @@
-#include <math.h>
 #include "vector_cal.h"
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
 int yylex (){
   	int c;
   	while ((c = getchar ()) == ' ' || c == '\t')
@@ -33,6 +34,7 @@ int yyerror(const char* s) {
   printf("%s\n", s);
   return 0;
 }
+*/
 Vector *creaVector(int n){
    Vector *vec;
    int i;
@@ -41,6 +43,9 @@ Vector *creaVector(int n){
    vec->vec = (double *)malloc(sizeof(double)*n);
    return vec;
 }
+
+Vector* cubeta[100];
+
 void imprimeVector(Vector *v){
    int i;
    for(i=0; i< v->n; i++)
@@ -79,7 +84,7 @@ double productoPuntoVector(Vector*a, Vector*b){
   for(i=0;i<a->n;i++){
     aux->vec[i]=a->vec[i]*b->vec[i];
   }
-  for (j = 0; j < 2; j++) {
+  for (j = 0; j < a->n; j++) {
     sum = sum + aux->vec[j];
   }
 
@@ -91,8 +96,8 @@ Vector* productoCruzVector(Vector*a, Vector*b){
   aux=creaVector(a->n);
   double i,j,k;
   i =(a->vec[1] *  b->vec[2]) - (a->vec[2]*b->vec[1]);
-  j =(a->vec[0] *  b->vec[3]) - (a->vec[3]*b->vec[0]);
-  k =(a->vec[0] *  b->vec[1]) - (a->vec[0]*b->vec[1]);
+  j =(a->vec[2] *  b->vec[0]) - (a->vec[0]*b->vec[2]);
+  k =(a->vec[0] *  b->vec[1]) - (a->vec[1]*b->vec[0]);
   aux->vec[0]=i;
   aux->vec[1]=j;
   aux->vec[2]=k;
@@ -101,9 +106,8 @@ Vector* productoCruzVector(Vector*a, Vector*b){
 }
 
 Vector* escalarVector(Vector* a, double escalar){
-  Vector* aux,res;
+  Vector* aux;
   aux = creaVector(a->n);
-  res = creaVector(a->n);
   int i;
   for(i = 0; i < a->n; i++) {
     aux->vec[i]=escalar*a->vec[i];
@@ -113,14 +117,28 @@ Vector* escalarVector(Vector* a, double escalar){
 
 double magnitudVector(Vector* a){
   double aux;
-  aux = sqrt((a->vec[0] - a->vec[1])^2);
-}
-Vector*  obtenerValor(double a){
+  int i=0;
+  for(i = 0;i < a->n;i++){
+    aux += (a->vec[i] * a->vec[i]);
+  }
+  aux = sqrt(aux);
+  return aux;
 }
 
-void actualizarValor(Vector*a, Vector*b){
-  a->vec[0] = b->vec[0];
-  a->vec[1] = b->vec[1];
-  a->vec[2] = b->vec[2];
+int obtenerId(char var){
+    if('A' <= var && var <= 'Z' )
+      return(var - 'A');
+    return (var - 'a' +26);
+}
+
+Vector*  obtenerValor(char var){
+  int id = obtenerId(var);
+  Vector*c = cubeta[id];
+  return c;
+}
+
+void actualizarValor(char index, Vector*b){
+  int id = obtenerId(index);
+  cubeta[id] = b;
 }
 
