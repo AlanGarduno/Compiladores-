@@ -1,8 +1,8 @@
 %{
+#include "vector_cal.h"
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
-#include "vector_cal.h"
 #include <signal.h>
 #include <setjmp.h>
 
@@ -44,8 +44,7 @@ vector:
 		  term                  { $$ = $1;                          }
 		| vector '+' vector     { $$ = sumaVector($1, $3);          }
         | vector '-' vector     { $$ = restaVector($1, $3);         }
-        | NUMBER '*' vector     { $$ = escalarVector($1, $3);       }
-        | vector '*' NUMBER     { $$ = escalarVector($3, $1);       }
+        | vector '*' NUMBER     { $$ = escalarVector($1, $3);       }
         | vector '#' vector     { $$ = productoCruzVector ($1, $3); }
 	;
 	
@@ -54,9 +53,6 @@ term:
 		 | VAR                  { $$ = obtenerValor($1);            }
 	;
 %%
-
-
-
 char *progname;
 int lineno = 1;
 
