@@ -164,41 +164,46 @@ final ParserVal dup_yyval(ParserVal val)
 //#### end semantic value section ####
 public final static short NUMBER=257;
 public final static short LINE=258;
-public final static short CIRCULO=259;
-public final static short RECTANGULO=260;
-public final static short COLOR=261;
-public final static short PRINT=262;
+public final static short RIGHT=259;
+public final static short CIRCULO=260;
+public final static short RECTANGULO=261;
+public final static short COLOR=262;
+public final static short PRINT=263;
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
     0,    0,    0,    1,    1,    1,    1,    1,
 };
 final static short yylen[] = {                            2,
-    0,    2,    3,    1,    1,    2,    2,    2,
+    0,    2,    3,    1,    6,    5,    6,    2,
 };
 final static short yydefred[] = {                         1,
-    0,    4,    0,    0,    5,    0,    2,    0,    6,    7,
-    8,    3,
+    0,    4,    0,    0,    0,    0,    2,    0,    0,    0,
+    0,    8,    3,    0,    0,    0,    0,    0,    0,    0,
+    6,    0,    5,    7,
 };
 final static short yydgoto[] = {                          1,
     8,
 };
 final static short yysindex[] = {                         0,
-  -59,    0, -256, -255,    0, -254,    0,  -55,    0,    0,
-    0,    0,
+  -59,    0, -256, -255, -254, -253,    0,  -54, -251, -250,
+ -249,    0,    0, -248, -247, -246, -245, -244, -243, -242,
+    0, -241,    0,    0,
 };
 final static short yyrindex[] = {                         0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,
 };
 final static short yygindex[] = {                         0,
     0,
 };
-final static int YYTABLESIZE=202;
+final static int YYTABLESIZE=203;
 static short yytable[];
 static { yytable();}
 static void yytable(){
 yytable = new short[]{                          7,
-    9,   10,   11,   12,    0,    0,    0,    0,    0,    0,
+    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,
+   19,   20,   21,   22,   23,   24,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
@@ -216,16 +221,16 @@ yytable = new short[]{                          7,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    2,    3,    4,
-    5,    6,
+    0,    0,    0,    0,    0,    0,    0,    2,    3,    0,
+    4,    5,    6,
 };
 }
 static short yycheck[];
 static { yycheck(); }
 static void yycheck() {
 yycheck = new short[] {                         59,
-  257,  257,  257,   59,   -1,   -1,   -1,   -1,   -1,   -1,
+  257,  257,  257,  257,   59,  257,  257,  257,  257,  257,
+  257,  257,  257,  257,  257,  257,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
@@ -243,13 +248,12 @@ yycheck = new short[] {                         59,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,  257,  258,  259,
-  260,  261,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,  257,  258,   -1,
+  260,  261,  262,
 };
 }
 final static short YYFINAL=1;
-final static short YYMAXTOKEN=262;
+final static short YYMAXTOKEN=263;
 final static String yyname[] = {
 "end-of-file",null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
@@ -267,7 +271,8 @@ null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-null,null,null,null,"NUMBER","LINE","CIRCULO","RECTANGULO","COLOR","PRINT",
+null,null,null,null,"NUMBER","LINE","RIGHT","CIRCULO","RECTANGULO","COLOR",
+"PRINT",
 };
 final static String yyrule[] = {
 "$accept : list",
@@ -275,92 +280,107 @@ final static String yyrule[] = {
 "list : list ';'",
 "list : list inst ';'",
 "inst : NUMBER",
-"inst : RECTANGULO",
-"inst : LINE NUMBER",
-"inst : CIRCULO NUMBER",
+"inst : LINE NUMBER NUMBER NUMBER NUMBER NUMBER",
+"inst : CIRCULO NUMBER NUMBER NUMBER NUMBER",
+"inst : RECTANGULO NUMBER NUMBER NUMBER NUMBER NUMBER",
 "inst : COLOR NUMBER",
 };
 
-//#line 28 "forma.y"
+//#line 66 "forma.y"
 
 class Algo {
 	Simbolo simb;
 	int inst;
 	public Algo(int i){ inst=i; }
 	public Algo(Simbolo s, int i){
-		simb=s; inst=i;
+		simb=s;
+                inst=i;
 	}
-}
-public void setTokenizer(StringTokenizer st){
- 	this.st= st;
-}
-public void setNewline(boolean newline){
- 	this.newline= newline;
 }
 Tabla tabla;
 Maquina maq;
 
 StringTokenizer st;
 boolean newline;
+
 int yylex(){
-String s;
-int tok;
-Double d;
-Simbolo simbo;
-   if (!st.hasMoreTokens())
-      if (!newline) {
-         newline=true; 
-	 return ';';  
-      }
-   else
-      return 0;
-   s = st.nextToken();
-   try {
-      d = Double.valueOf(s);
-      yylval = new ParserVal(
-             new Algo(tabla.install("", NUMBER, d.doubleValue()),0) );
-      tok = NUMBER;
-   } catch (Exception e){
-   if(Character.isLetter(s.charAt(0))){
-      if((simbo=tabla.lookup(s))==null)
-         yylval = new ParserVal(new Algo(simbo, 0));
-	 tok= simbo.tipo;	
-      } else {
-    	tok = s.charAt(0);
-      }
-   }
-   return tok;
-}
+	String s;
+	int tok;
+	Double d;
+	Simbolo simbo;
+   	if (!st.hasMoreTokens())
+    	if (!newline) {
+        	newline=true; 
+		 	return ';';  
+			}
+   		else
+      		return 0;
+   		s = st.nextToken();
+   		try {
+      		d = Double.valueOf(s);
+      		yylval = new ParserVal(new Algo(tabla.install("", NUMBER, d.doubleValue()),0) );
+      		tok = NUMBER;
+   			} catch (Exception e){
+   		if(Character.isLetter(s.charAt(0))){
+      		if((simbo=tabla.lookup(s))==null)
+         		yylval = new ParserVal(new Algo(simbo, 0));
+	 			tok= simbo.tipo;	
+	      		}
+			else {
+    			tok = s.charAt(0);
+		      }
+   			}
+   		return tok;
+	}
+
 void yyerror(String s){
    System.out.println("parser error: "+s);
 }
+
 static Parser par = new Parser(0);
-static JFrame jf;
+static JFrame f;
+static JTextField t=new JTextField(20);
+static JButton bcalc;
 static JLabel lmuestra=new JLabel("                                 ");
 static Canvas canv;
 static Graphics g;
 Parser(int foo){
-   maq=new Maquina();
-   tabla=new Tabla();
-   tabla.install("line", LINE, 0.0);
-   tabla.install("circulo", CIRCULO, 0.0);
-   tabla.install("rectangulo", RECTANGULO, 0.0);
-   tabla.install("color", COLOR, 0.0);
-   tabla.install("print", PRINT, 0.0);
-   maq.setTabla(tabla);
-   jf=new JFrame("Calcula");
+   f=new JFrame("Calcula");
+   bcalc=new JButton("Ejecuta");
+   bcalc.addActionListener(new ManejaBoton());
    canv=new Canvas();
-   canv.setSize(600,600);
-   jf.add("North", new PanelEjecuta(maq, this));
-   jf.add("Center", canv);
-   jf.setSize( 600, 700);
-   jf.setVisible(true);
-   g=canv.getGraphics();
-   maq.setGraphics(g);
-   jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
+   canv.setSize(300,300);
+   f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
 }
-public static void main(String args[]){ new Parser(); }
-//#line 292 "Parser.java"
+
+public static void main(String args[]){
+  f.add("North", t);
+  f.add("Center", canv);
+  f.add("South", bcalc);
+  f.setSize( 300, 400);
+  f.setResizable(false);
+  f.setVisible(true);
+  g=canv.getGraphics();
+}
+class ManejaBoton implements ActionListener {
+   public void actionPerformed(ActionEvent e){
+      JButton jb=(JButton)e.getSource();
+      if(jb == bcalc){
+         maq=new Maquina(g);
+	 tabla=new Tabla();
+	 tabla.install("line", LINE, 0.0);
+     tabla.install("circulo", CIRCULO, 0.0);
+	 tabla.install("rectangulo", RECTANGULO, 0.0);
+     tabla.install("color", COLOR, 0.0);
+	 tabla.install("print", PRINT, 0.0);
+	 st = new StringTokenizer(t.getText());
+    	 newline=false;
+	 for(maq.initcode(); par.yyparse ()!=0; maq.initcode())
+	    maq.execute(maq.progbase);
+      }
+   }
+}
+//#line 312 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -519,32 +539,63 @@ case 3:
 { 
              maq.code("print"); maq.code("STOP"); return 1 ;
      }
-//break;
+break;
 case 4:
 //#line 18 "forma.y"
 { ((Algo)yyval.obj).inst=maq.code("constpush");
                 maq.code(((Algo)val_peek(0).obj).simb); }
 break;
 case 5:
-//#line 20 "forma.y"
-{ maq.code("rectangulo"); }
+//#line 22 "forma.y"
+{		maq.code("constpush");
+                maq.code(((Algo)val_peek(0).obj).simb);
+		maq.code("color");
+		maq.code("constpush");
+                maq.code(((Algo)val_peek(4).obj).simb);
+		maq.code("constpush");
+		maq.code(((Algo)val_peek(3).obj).simb);
+		maq.code("constpush");
+                maq.code(((Algo)val_peek(2).obj).simb);
+		maq.code("constpush");
+                maq.code(((Algo)val_peek(1).obj).simb); maq.code("line");
+}
 break;
 case 6:
-//#line 21 "forma.y"
-{ maq.code("constpush");
-                maq.code(((Algo)val_peek(0).obj).simb); maq.code("line");}
+//#line 36 "forma.y"
+{
+		maq.code("constpush");
+                maq.code(((Algo)val_peek(0).obj).simb);
+ 		maq.code("color");
+		maq.code("constpush");
+                maq.code(((Algo)val_peek(3).obj).simb);
+                maq.code("constpush");
+                maq.code(((Algo)val_peek(2).obj).simb);
+                maq.code("constpush");
+                maq.code(((Algo)val_peek(1).obj).simb); maq.code("circulo");
+	}
 break;
 case 7:
-//#line 23 "forma.y"
-{ maq.code("constpush");
-                maq.code(((Algo)val_peek(0).obj).simb); maq.code("circulo");}
+//#line 49 "forma.y"
+{
+		maq.code("constpush");
+		maq.code(((Algo)val_peek(0).obj).simb);
+		maq.code("color");
+		maq.code("constpush");
+		maq.code(((Algo)val_peek(4).obj).simb);
+		maq.code("constpush");
+		maq.code(((Algo)val_peek(3).obj).simb);
+		maq.code("constpush");
+		maq.code(((Algo)val_peek(2).obj).simb);
+		maq.code("constpush");
+		maq.code(((Algo)val_peek(1).obj).simb);maq.code("rectangulo");	
+	}
 break;
 case 8:
-//#line 25 "forma.y"
+//#line 63 "forma.y"
 { maq.code("constpush");
                 maq.code(((Algo)val_peek(0).obj).simb); maq.code("color");}
 break;
-//#line 471 "Parser.java"
+//#line 522 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

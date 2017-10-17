@@ -1,0 +1,4 @@
+rectangulo 100 100 60 40 1
+rectangulo 80 140 100 50 2
+circulo 90 175 30 0
+circulo 140 175 30 0

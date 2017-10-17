@@ -3,7 +3,7 @@ import java.util.*;
 import java.lang.reflect.*;
 
 class  Maquina {
-Tabla tabla;
+
 Stack pila;
 Vector prog;
 
@@ -19,9 +19,6 @@ Graphics g;
 double angulo;
 int x=0, y=0;
 Class parames[];
-        Maquina(){}
-        public void setTabla(Tabla t){ tabla = t; }
-        public void setGraphics(Graphics g){ this.g=g; }
 	Maquina(Graphics g){ this.g=g; }
 	public Vector getProg(){ return prog; }
 	void initcode(){
@@ -65,44 +62,51 @@ Class parames[];
 		}
 	}
 	void constpush(){
-	Simbolo s;
-	Double d;
-	s=(Simbolo)prog.elementAt(pc);
-	pc=pc+1;
-	pila.push(new Double(s.val));
-	}
-        void color(){
-                Color colors[]={Color.red,Color.green,Color.blue};
+		Simbolo s;
+		Double d;
+		s=(Simbolo)prog.elementAt(pc);
+		pc=pc+1;
+		pila.push(new Double(s.val));
+		}
+	void color(){
+        Color colors[]={Color.red,Color.green,Color.blue};
 		double d1;
 		d1=((Double)pila.pop()).doubleValue();
-                if(g!=null){
+        if(g!=null){
 			g.setColor(colors[(int)d1]);
-		}
+			}
         }
 	void line(){
-		double d1;
+		double d1, d2, d3, d4;
 		d1=((Double)pila.pop()).doubleValue();
-                if(g!=null){
-                        (new Linea(x+150,150-y,
-			(int)(x+d1*Math.cos(angulo))+150, 
-			150-(int)(y+d1*Math.sin(angulo))) ).dibuja(g);
+		d2=((Double)pila.pop()).doubleValue();
+		d3=((Double)pila.pop()).doubleValue();
+		d4=((Double)pila.pop()).doubleValue();
+        if(g!=null){
+        	(new Linea((int)d4,(int)d3,(int)d2,(int)d1)).dibuja(g);
                 }
-                x=(int)(x+d1*Math.cos(angulo));
-                y=(int)(y+d1*Math.sin(angulo));
-                System.out.println("x="+x+" y="+y+" d1="+d1);
+		}
+    void circulo(){
+		double d1, d2, d3;
+		d1=((Double)pila.pop()).doubleValue();
+		d2=((Double)pila.pop()).doubleValue();
+		d3=((Double)pila.pop()).doubleValue();
+        if(g!=null){
+			 (new Circulo((int)d3, (int)d2, (int)d1)).dibuja(g);
+                }
+        }
+	void rectangulo(){
+		double d1, d2, d3, d4;
+		d1=((Double)pila.pop()).doubleValue();
+		d2=((Double)pila.pop()).doubleValue();
+		d3=((Double)pila.pop()).doubleValue();
+		d4=((Double)pila.pop()).doubleValue();
+		if(g!=null){
+			(new Rectangulo((int)d4, (int)d3, (int)d2, (int)d1)).dibuja(g);
+		}
 	}
-        void circulo(){
-		double d1;
-		d1=((Double)pila.pop()).doubleValue();
-                if(g!=null){
-			 (new Circulo(x+150, 150-y, (int)d1)).dibuja(g);
-                }
-        }
-        void rectangulo(){
-                if(g!=null){
-			 (new Rectangulo(x+150, 150-y, 100, 200 )).dibuja(g);
-                }
-        }
+
+
 	void print(){
 	Double d;
 	d=(Double)pila.pop();
